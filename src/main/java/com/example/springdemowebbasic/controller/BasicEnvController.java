@@ -1,0 +1,107 @@
+package com.example.springdemowebbasic.controller;
+
+import com.example.springdemowebbasic.properties.AppBasicEnvProperties;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * @author rival
+ * @since 2024-11-09
+ */
+
+@RestController
+@RequestMapping(value="/env", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequiredArgsConstructor
+@Slf4j
+public class BasicEnvController {
+
+
+    @Value("${app.name:defaultAppName}")
+    private String appName;
+
+    @Value("${app.version}")
+    private int appVersion;
+
+
+    @Value("${app.some-key}")
+    private String appSomeKey;
+
+    @Value("#{'${app.list}'.split(',')}")
+    private List<String> appList;
+
+
+
+    private final AppBasicEnvProperties properties;
+
+
+    @GetMapping(value = "")
+    public Map<String, String> getMessage(){
+        var res = new HashMap<String,String>();
+        res.put("message", "Hello World!");
+        return res;
+    }
+
+
+
+    // env from application.yml
+    @GetMapping(value="/app-env")
+    public Map<String, Object> getEnv(){
+        var res = new HashMap<String, Object>();
+
+        res.put("version", appVersion);
+        res.put("fruits", properties.getFruits());
+        res.put("name", appName);
+        res.put("key",appSomeKey);
+        res.put("list", appList);
+
+        return res;
+    }
+
+
+    @Value("#{systemProperties['user.home']}")
+    private String userHome;
+
+    @Value("#{environment['spring.profiles.active']}")
+    private String profileActive;
+
+    @Value("#{exampleService.message}")
+    private String messageFromBean;
+
+
+
+
+    @Value("#{exampleService.generateRandInt()}")
+    private Integer randomInt;
+
+
+    // from bean, system properties, system environment
+    @GetMapping(value="/variables")
+    public Map<String, Object> getVariables(){
+
+        var res = new HashMap<String,Object>();
+
+        res.put("user.home", userHome);
+
+        res.put("message", messageFromBean);
+
+        res.put("random int",  randomInt);
+
+        res.put("profile", profileActive);
+
+        return res;
+    }
+
+
+
+
+
+}

@@ -1,0 +1,29 @@
+server:
+  port: 8080
+  error:
+    whitelabel:
+      enabled: false
+    include-message: always
+
+
+
+
+
+spring:
+  application:
+    name: spring-demo-web-basic
+
+
+
+app:
+  name: myApp
+  version: 1
+  some-key: ${SOME_KEY:default-key}
+  list: aaa,bbb,ccc
+
+
+basket:
+  fruits:
+    - banana
+    - apple
+    - mango
