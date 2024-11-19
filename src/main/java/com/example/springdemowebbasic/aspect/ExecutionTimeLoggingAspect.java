@@ -1,6 +1,6 @@
 package com.example.springdemowebbasic.aspect;
 
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  */
 @Aspect
 @Component
-@Slf4j
+@Log4j2
 public class ExecutionTimeLoggingAspect {
 
     @Around("execution(* com.example.springdemowebbasic.controller.AopController.*(..))")

@@ -2,6 +2,7 @@ package com.example.springdemowebbasic.filter;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
+import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -12,7 +13,7 @@ import java.io.IOException;
  */
 
 @WebFilter("/filter/*")
-@Slf4j
+@Log4j2
 public class ServletFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

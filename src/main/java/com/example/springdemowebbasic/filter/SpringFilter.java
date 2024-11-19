@@ -5,7 +5,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.NonNull;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -16,7 +16,7 @@ import java.io.IOException;
  * @since 2024-11-15
  */
 
-@Slf4j
+@Log4j2
 public class SpringFilter extends OncePerRequestFilter {
 
     private final AntPathMatcher antPathMatcher;

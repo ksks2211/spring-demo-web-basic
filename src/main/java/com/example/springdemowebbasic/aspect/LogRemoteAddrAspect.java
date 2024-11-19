@@ -1,7 +1,7 @@
 package com.example.springdemowebbasic.aspect;
 
 import jakarta.servlet.http.HttpServletRequest;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-@Slf4j
+@Log4j2
 public class LogRemoteAddrAspect {
     @Before("@annotation(com.example.springdemowebbasic.annotation.LogRemoteAddr) && args(request,..)")
     public void logRemoteAddrAspect(HttpServletRequest request) {

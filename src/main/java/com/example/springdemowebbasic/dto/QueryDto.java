@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @NoArgsConstructor
-public class QueryDTO {
+public class QueryDto {
 
     private int page;
     private int size;

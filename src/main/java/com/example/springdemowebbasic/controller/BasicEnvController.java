@@ -2,6 +2,7 @@ package com.example.springdemowebbasic.controller;
 
 import com.example.springdemowebbasic.properties.AppBasicEnvProperties;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
@@ -21,7 +22,7 @@ import java.util.Map;
 @RestController
 @RequestMapping(value="/env", produces = MediaType.APPLICATION_JSON_VALUE)
 @RequiredArgsConstructor
-@Slf4j
+@Log4j2
 public class BasicEnvController {
 
 

@@ -8,7 +8,6 @@ server:
 
 
 
-
 spring:
   application:
     name: spring-demo-web-basic
@@ -27,3 +26,6 @@ basket:
     - banana
     - apple
     - mango
+logging:
+  file:
+    name: app.log
