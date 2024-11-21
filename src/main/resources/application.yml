@@ -4,11 +4,13 @@ server:
     whitelabel:
       enabled: false
     include-message: always
-
-
-
+    include-exception: true
+    include-path: always
 
 spring:
+  jackson:
+    time-zone: UTC
+    date-format: yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
   application:
     name: spring-demo-web-basic
 
@@ -27,5 +29,3 @@ basket:
     - apple
     - mango
 logging:
-  file:
-    name: app.log

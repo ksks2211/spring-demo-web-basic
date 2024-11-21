@@ -19,8 +19,8 @@ import java.util.List;
 @NoArgsConstructor
 public class QueryDto {
 
-    private int page;
-    private int size;
+    private Integer page;
+    private Integer size;
     @Builder.Default
     private List<String> keywords = new ArrayList<>();
     private String query;

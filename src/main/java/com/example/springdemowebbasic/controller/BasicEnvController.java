@@ -1,9 +1,9 @@
 package com.example.springdemowebbasic.controller;
 
+import com.example.springdemowebbasic.exception.CustomBadRequestException;
 import com.example.springdemowebbasic.properties.AppBasicEnvProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ import java.util.Map;
  */
 
 @RestController
-@RequestMapping(value="/env", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value="/basic", produces = MediaType.APPLICATION_JSON_VALUE)
 @RequiredArgsConstructor
 @Log4j2
 public class BasicEnvController {
@@ -101,6 +101,17 @@ public class BasicEnvController {
         return res;
     }
 
+
+    @GetMapping(value="/err")
+    public void error(){
+        throw new RuntimeException("Exception Occurred!");
+    }
+
+
+    @GetMapping(value="/err-custom")
+    public void customError(){
+        throw new CustomBadRequestException("Bad Request", "Some Field");
+    }
 
 
 

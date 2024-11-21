@@ -12,6 +12,7 @@
                 <timestamp>
                     <fieldName>timestamp</fieldName>
                 </timestamp>
+
                 <logLevel>
                     <fieldName>level</fieldName>
                 </logLevel>
